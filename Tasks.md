@@ -1,16 +1,14 @@
 # Learning Tasks
 
-## Language Basics
+## Language Features
 - [x] Run simple script.
 - [ ] Classes and OOP.
 
 ## Compiler
-- [ ] [LLVM](https://releases.llvm.org/18.1.8/docs/GettingStarted.html)
-
-## Building
-- [ ] Makefiles
-- [ ] Automation
+- [ ] Review [LLVM Getting Started](https://releases.llvm.org/18.1.8/docs/GettingStarted.html) page.
+- [ ] Review [Clang Command Line Options](https://clang.llvm.org/docs/UsersManual.html#command-line-options). 
 
 ## Project Setup/Management
-- [ ] Implement simple build/link/run process.
+- [x] Implement simple build/link/run process.
+- [ ] Automate the build process. 
 - [ ] Review the clangd extensions' setup guide.

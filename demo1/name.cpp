@@ -1,7 +1,6 @@
 #include "utils.hpp"
 #include "name.hpp"
 
-
 void print_name()
 {
     std::cout << "Enter your first name: ";
