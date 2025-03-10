@@ -2,6 +2,7 @@
 
 **Resources**:
 - [Beginning C++ Programming PDF](https://notalentgeek.github.io/note/note/project/project-independent/pi-brp-beginning-c-programming/document/20170807-1504-cet-1-book-and-source-1.pdf)
+- [Embedded Systems Programming](https://elhacker.info/manuales/OReilly%204%20GB%20Collection/O%27Reilly%20-%20Programming%20Embedded%20Systems%20in%20C%20and%20C++.pdf)
 - [LLVM Documentation](https://releases.llvm.org/18.1.8/docs/)
 - [Clang Documentation](https://clang.llvm.org/docs/UsersManual.html#generating-a-pch-file)
 - 
@@ -34,9 +35,12 @@
     - When used on pointers, the address is incremented by the size of the pointer type (e.g. 32 bits for an 32 bit integer).
 
 6. The **Comma** operator `,`
-    - 
 
 7. The **Assignment** operator `=`
+
+8. The **Angle Brackets** operator `<>`
+    1. Parameterize
+        - A class that is parameterized allows parameters to be passed during declaration, e.g. `bitset<64> my_bitset(value)` where `my_bitset()` is a call to the class's constructor. 
 
 ## Useful keywords
 
@@ -57,6 +61,7 @@
 
 5. Static
     - Variables labeled as static, e.g. `static int value` will have memory allocated on program start, regardless of scope (typically only global file variables are allocated on start).
+    - Variables declared with `static` at the file level will only be accessible within the file.
     - Within functions, the static keyword enables *state*, meaning that each call of the function will utilize whatever value is currently assigned to the variable, though the variable is still only accessible within the function. 
 
 
@@ -64,7 +69,8 @@
 
 - Allows the use of *fully-qualified names* with the scope **resolution operator**, e.g. `std::cout`.
 - Namespaces decorate collections of types, functions, and variables: 
-```namespace my_namespace
+```
+namespace my_namespace
 {
   bool myFunc(); // func declaration
   int myFunc2() {} // func definition
@@ -76,6 +82,40 @@ All of the members are now accessible via the namespace.
 - Namespaces can be nested, and using the `inline` keyword on a nested namespace will allow access to it through the parent's name.
 - A particular namespace may be defined in multiple places.\
 - Namespaces may contain the `include` directive, enabling access to any symbols specified in the included header file.
+
+## Storage Classes
+
+- A storage class indicates the lifetime, linkage, and memory location of a variable.
+1. Static
+    - Used at the file level, the `static` keyword internally links the symbol so that it may only be accessed within the file.
+    - Used in a function, the `static` keyword sets the lifetime of the variable to be the same as the programs.
+2. External
+    - The `extern` keyword indicates that a symbol may be used in other files (often used in header files).
+3. Thread Local
+    - Use of `thread_local` means that the variable has the same lifetime as the thread.
+
+## Type Aliases
+
+- As types become more cumbersome to read/write (such as nested parameterized types) type aliasing is useful:
+```
+vector<tuple<string, int>> people;
+
+// or 
+
+typedef tuple<string, int> name_year_t;
+vector<name_year_t> people;
+
+```
+- The `typedef` keyword also increases read/writeability in due to clearer meaning of what the variable represents (in this example, a name and a year).
+- Often better than using the `define` macro as type checking is performed.
+
+## Aggregated Types
+
+1. Structures
+    - The `struct` keyword may be used to associate variables.
+    - Structs members can be initialized through the `.` operator, a constructor, or `{}`.
+    - Can be nested.
+    - **Alignment** is 
 
 ## Scope
 
