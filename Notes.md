@@ -117,11 +117,21 @@ vector<name_year_t> people;
     - Can be nested.
     - **Alignment** is 
 
+## Alignment
+    - TODO: Review alignment if working with devices on a low level.
+
 ## Scope
 
 - Code blocks, `{ }` define a scope, and variables declared within them are only accessible within them, barring unique circumstances such as the use of `static` or in namespaces.
 
 - Variables can be *externally linked*, e.g. `extern int my_var;` which indicates to the compiler that the variable is accessible in other files. This is in contrast to *internal linkage*, which means that a symbol may only be used in the current translation unit (i.e. current file being compiled). 
+
+## Type Conversion (Type Casting)
+    - Promotion : when a smaller type is promoted to a larger type (no data loss can occur).
+    - Narrowing: when a larger type is converted to a smaller type (potential for the loss of data).
+    - The compiler will perform promotions when necessary to avoid errors (it assumes you know what you are doing), as no data is lost.
+    - The compiler will often issue warning when narrowing, as data could be lost.
+    - Note: Use explicit conversions and document the code when relying on implicit conversions.
 
 ## Libraries
 
