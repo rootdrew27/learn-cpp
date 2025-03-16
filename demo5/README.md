@@ -1,0 +1,4 @@
+# Demo 5
+
+## Description
+This demo is made for the purpose of analyzing files, as both hex and string formats are displayed. The hexdump file takes as input a file name and a positive integer specifying how many blocks should be displayed; the integer input is verified with `istringstream`. Block length is specified in the source code via the `block_length` constant and the files' contents are read in binary mode. The `setw` and `setfill` functions, along with custom padding, are used to present the output in a consistent format; non-printable characters are represented with a '.' character. Furthermore, a `usage` function is created to increase usability of the executable.
